@@ -26,8 +26,23 @@
   (let [grid [:div {:class "card-registry mdl-grid"}]
         cards (repeat 20 [:div {:class "card-cell mdl-cell mdl-cell--4-col
         mdl-cell--6-col-tablet mdl-cell--12-col-phone"}
-                          (card "Title" test-content)])]
+                          (card "Enuma Elish" test-content)])]
     (conj grid cards)))
+
+(defn search-bar []
+  [:form
+   {:action "#"}
+   [:div.mdl-textfield.mdl-js-textfield.mdl-textfield--expandable
+    [:label.mdl-button.mdl-js-button.mdl-button--icon
+     {:for "search"}
+     [:i.material-icons
+      "search"]]
+    [:div.mdl-textfield__expandable-holder
+     [:input#search.mdl-textfield__input
+      {:type "text"}]
+     [:label.mdl-textfield__label
+      {:for "sample-expandable"}
+      "Expandable Input"]]]])
 
 ;; -------------------------
 ;; Views
@@ -36,20 +51,14 @@
   [:div {:class "layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer"}
    [:header {:class "mdl-layout__header mdl-layout__header--transparent"}
     [:div {:class "mdl-layout__header-row"}
-     [:span {:class "mdl-layout-title"} "Title"]
+     [:span {:class "mdl-layout-title"} "Papyri"]
      [:div {:class "mdl-layout-spacer"}]
-     [:nav {:class "mdl-navigation"}
-      [:a {:class "mdl-navigation__link"} "Link"]
-      [:a {:class "mdl-navigation__link"} "Link"]
-      [:a {:class "mdl-navigation__link"} "Link"]
-      [:a {:class "mdl-navigation__link"} "Link"]]]]
+     (search-bar)]]
    [:div {:class "mdl-layout__drawer"}
-    [:span {:class "mdl-layout-title"} "Title"]
+    [:span {:class "mdl-layout-title"} "Papyri"]
     [:nav {:class "mdl-navigation"}
-     [:a {:class "mdl-navigation__link"} "Link"]
-     [:a {:class "mdl-navigation__link"} "Link"]
-     [:a {:class "mdl-navigation__link"} "Link"]
-     [:a {:class "mdl-navigation__link"} "Link"]]]
+     [:a {:class "mdl-navigation__link"} "About"]
+     [:a {:class "mdl-navigation__link"} "Settings"]]]
    [:main {:class "mdl-layout__content"}
     [:div
      ;questionable formatting..
