@@ -33,7 +33,7 @@
 ;; Views
 
 (defn home-page []
-  [:div {:class "layout-transparent mdl-layout mdl-js-layout"}
+  [:div {:class "layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer"}
    [:header {:class "mdl-layout__header mdl-layout__header--transparent"}
     [:div {:class "mdl-layout__header-row"}
      [:span {:class "mdl-layout-title"} "Title"]
