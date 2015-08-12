@@ -7,6 +7,11 @@
     (:import goog.History))
 
 ;; -------------------------
+;; Test data
+
+(def test-content "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.")
+
+;; -------------------------
 ;; Components
 
 (defn card [title content]
@@ -16,6 +21,12 @@
      title]]
    [:div {:class "mdl-card__supporting-text"}
     content]])
+
+(defn card-registry []
+  (let [grid [:div {:class "mdl-grid"}]
+        cards (repeat 10 [:div {:class "mdl-cell mdl-cell--3-col"}
+                          (card "Title" test-content)])]
+    (conj grid cards)))
 
 ;; -------------------------
 ;; Views
@@ -38,7 +49,9 @@
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]]]
-   [:main {:class "mdl-layout__content"}]])
+   [:br]
+   [:main {:class "mdl-layout__content"}
+    (card-registry)]])
 
 (defn about-page []
   [:div [:h2 "About papyri-demo"]
