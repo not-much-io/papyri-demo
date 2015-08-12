@@ -41,14 +41,15 @@
       [:a {:class "mdl-navigation__link"} "Link"]
       [:a {:class "mdl-navigation__link"} "Link"]
       [:a {:class "mdl-navigation__link"} "Link"]
-      [:a {:class "mdl-navigation__link"} "Link"]]]
-   [:div {:class "mdl-layout__drawer"}
+      [:a {:class "mdl-navigation__link"} "Link"]]
+    [:div {:class "mdl-layout__drawer"}
     [:span {:class "mdl-layout-title"} "Title"]
     [:nav {:class "mdl-navigation"}
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]]]]
+    ]
    [:br]
    [:main {:class "mdl-layout__content"}
     (card-registry)]])
