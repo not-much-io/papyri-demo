@@ -9,25 +9,35 @@
 ;; -------------------------
 ;; Test data
 
-(def test-content "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.")
+(def test-data {:thought "Lorem ipsum dolor sit amet"
+                :category "Latin"
+                :date "Aug. 13"})
 
 ;; -------------------------
 ;; Components
 
-(defn card [title content]
-  [:div {:class "square-card mdl-card mdl-shadow--2dp"}
-   [:div {:class "mdl-card__title mdl-card--expand"}
-    [:h2 {:class "mdl-card__title-text"}
-     title]]
-   [:div {:class "mdl-card__supporting-text"}
-    content]])
+(defn table-row [data]
+  [:tr
+   [:td.mdl-data-table__cell--non-numeric
+    (:thought data)]
+   [:td.mdl-data-table__cell--non-numeric
+    (:date data)]])
 
-(defn card-registry []
-  (let [grid [:div {:class "card-registry mdl-grid"}]
-        cards (repeat 20 [:div {:class "card-cell mdl-cell mdl-cell--4-col
-        mdl-cell--6-col-tablet mdl-cell--12-col-phone"}
-                          (card "Enuma Elish" test-content)])]
-    (conj grid cards)))
+(defn table []
+  [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.papyri-table.mdl-data-table--selectable
+   [:thead
+    [:tr
+     [:th.mdl-data-table__cell--non-numeric
+      "Thought"]
+     [:th.mdl-data-table__cell--non-numeric
+      "Date"]]]
+   [:tbody
+    (repeat 30 (table-row test-data))]])
+
+(defn table-container []
+  [:div.mdl-grid.table-container
+   [:div.mdl-cell.mdl-cell--12-col
+    (table)]])
 
 (defn search-bar []
   [:form
@@ -43,6 +53,11 @@
      [:label.mdl-textfield__label
       {:for "sample-expandable"}
       "Expandable Input"]]]])
+(comment
+  (defn fab []
+    [:a#view-source.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--accent.mdl-color-text--accent-contrast
+     {:href "https://github.com/google/material-design-lite/blob/master/templates/text-only/", :target "_blank"}
+     "View Source"]))
 
 ;; -------------------------
 ;; Views
@@ -62,8 +77,7 @@
    [:main {:class "mdl-layout__content"}
     [:div
      ;questionable formatting..
-     [:br]
-     (card-registry)]]])
+     (table-container)]]])
 
 (defn about-page []
   [:div [:h2 "About papyri-demo"]

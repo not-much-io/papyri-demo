@@ -11,20 +11,10 @@
   color: white;
 }
 
-.card-cell {
-    padding: 25px;
-}
-
-.square-card.mdl-card {
-    width: 250px;
-    height: 250px;
-}
-
-.square-card > .mdl-card__title {
-    color: #ffffff;
-    background: #795548;
-}
-
-.card-registry {
+.table-container {
     max-width: 1200px;
+}
+
+.papyri-table {
+    min-width: 100%;
 }
