@@ -9,23 +9,24 @@
             [environ.core :refer [env]]))
 
 (def home-page
-  (html5
-   [:html
-    [:head
-     [:meta {:charset "utf-8"}]
-     [:meta {:name "viewport"
-             :content "width=device-width, initial-scale=1"}]
-     (include-css (if (env :dev) "css/site.css" "css/site.min.css")
-                  "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.brown-orange.min.css"
-                  "https://fonts.googleapis.com/icon?family=Material+Icons")]
-    [:body
-     [:div#app
-      [:h3 "ClojureScript has not been compiled!"]
-      [:p "please run "
-       [:b "lein figwheel"]
-       " in order to start the compiler"]]
-     (include-js "js/app.js"
-                 "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js")]]))
+  (html 
+   ["<!DOCTYPE html>" 
+     [:html
+      [:head
+       [:meta {:charset "utf-8"}]
+       [:meta {:name "viewport"
+               :content "width=device-width, initial-scale=1"}]
+       (include-css (if (env :dev) "css/site.css" "css/site.min.css")
+                    "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.brown-orange.min.css"
+                    "https://fonts.googleapis.com/icon?family=Material+Icons")]
+      [:body
+       [:div#app
+        [:h3 "ClojureScript has not been compiled!"]
+        [:p "please run "
+         [:b "lein figwheel"]
+         " in order to start the compiler"]]
+       (include-js "js/app.js"
+                   "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js")]]]))
 
 (defroutes routes
   (GET "/" [] home-page)
