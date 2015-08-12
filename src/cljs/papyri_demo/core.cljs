@@ -20,8 +20,8 @@
   [:tr
    [:td.mdl-data-table__cell--non-numeric
     (:thought data)]
-   [:td.mdl-data-table__cell--non-numeric
-    (:date data)]])
+   (comment [:td.mdl-data-table__cell--non-numeric
+             (:date data)])])
 
 (defn table []
   [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.papyri-table.mdl-data-table--selectable
@@ -29,8 +29,8 @@
     [:tr
      [:th.mdl-data-table__cell--non-numeric
       "Thought"]
-     [:th.mdl-data-table__cell--non-numeric
-      "Date"]]]
+     (comment [:th.mdl-data-table__cell--non-numeric
+               "Date"])]]
    [:tbody
     (repeat 30 (table-row test-data))]])
 
