@@ -15,7 +15,7 @@
 ;; Components
 
 (defn card [title content]
-  [:div {:class "mdl-card mdl-shadow--2dp"}
+  [:div {:class "square-card mdl-card mdl-shadow--2dp"}
    [:div {:class "mdl-card__title mdl-card--expand"}
     [:h2 {:class "mdl-card__title-text"}
      title]]
@@ -23,8 +23,9 @@
     content]])
 
 (defn card-registry []
-  (let [grid [:div {:class "mdl-grid"}]
-        cards (repeat 10 [:div {:class "mdl-cell mdl-cell--3-col"}
+  (let [grid [:div {:class "card-registry mdl-grid"}]
+        cards (repeat 20 [:div {:class "card-cell mdl-cell mdl-cell--4-col
+        mdl-cell--6-col-tablet mdl-cell--12-col-phone"}
                           (card "Title" test-content)])]
     (conj grid cards)))
 
@@ -49,9 +50,11 @@
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]
      [:a {:class "mdl-navigation__link"} "Link"]]]
-   [:br]
    [:main {:class "mdl-layout__content"}
-    (card-registry)]])
+    [:div
+     ;questionable formatting..
+     [:br]
+     (card-registry)]]])
 
 (defn about-page []
   [:div [:h2 "About papyri-demo"]

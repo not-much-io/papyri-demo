@@ -1,9 +1,30 @@
+
 .layout-transparent {
   background: url('../images/oldbooks.jpg') center / cover;
 }
+
 .layout-transparent .mdl-layout__header,
+
 .layout-transparent .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
+    /* This background is dark, so we set text to white. Use 87% black instead if
      your background is light. */
   color: white;
+}
+
+.card-cell {
+    padding: 25px;
+}
+
+.square-card.mdl-card {
+    width: 250px;
+    height: 250px;
+}
+
+.square-card > .mdl-card__title {
+    color: #ffffff;
+    background: #795548;
+}
+
+.card-registry {
+    max-width: 1200px;
 }
