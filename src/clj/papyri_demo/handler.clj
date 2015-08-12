@@ -10,7 +10,7 @@
 
 (def home-page
   (html 
-   ["<!DOCTYPE html>" 
+   [:!DOCTYPE "html"]
      [:html
       [:head
        [:meta {:charset "utf-8"}]
@@ -26,7 +26,7 @@
          [:b "lein figwheel"]
          " in order to start the compiler"]]
        (include-js "js/app.js"
-                   "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js")]]]))
+                   "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js")]]))
 
 (defroutes routes
   (GET "/" [] home-page)
