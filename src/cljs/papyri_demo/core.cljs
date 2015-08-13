@@ -19,25 +19,19 @@
 (defn table-row [data]
   [:tr
    [:td.mdl-data-table__cell--non-numeric
-    (:thought data)]
-   (comment [:td.mdl-data-table__cell--non-numeric
-             (:date data)])])
+    (:thought data)]])
 
-(defn table []
-  [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.papyri-table.mdl-data-table--selectable
-   [:thead
-    [:tr
-     [:th.mdl-data-table__cell--non-numeric
-      "Thought"]
-     (comment [:th.mdl-data-table__cell--non-numeric
-               "Date"])]]
+(defn table [name]
+  [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.papyri-table
+   [:caption.table-caption [:h6 name]]
    [:tbody
-    (repeat 30 (table-row test-data))]])
+    (repeat 10 (table-row test-data))]])
 
-(defn table-container []
-  [:div.mdl-grid.table-container
+(defn table-container [table]
+  [:div.table-container.mdl-grid
    [:div.mdl-cell.mdl-cell--12-col
-    (table)]])
+    [:div.paper-backdrop.mdl-card.mdl-shadow--2dp
+     table]]])
 
 (defn search-bar []
   [:form
@@ -53,6 +47,7 @@
      [:label.mdl-textfield__label
       {:for "sample-expandable"}
       "Expandable Input"]]]])
+
 (comment
   (defn fab []
     [:a#view-source.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--accent.mdl-color-text--accent-contrast
@@ -63,21 +58,23 @@
 ;; Views
 
 (defn home-page []
-  [:div {:class "layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer"}
-   [:header {:class "mdl-layout__header mdl-layout__header--transparent"}
-    [:div {:class "mdl-layout__header-row"}
-     [:span {:class "mdl-layout-title"} "Papyri"]
-     [:div {:class "mdl-layout-spacer"}]
+  [:div.layout-transparent.mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer
+   [:header.mdl-layout__header.mdl-layout__header--transparent
+    [:div.mdl-layout__header-row
+     [:span.mdl-layout-title "Papyri"]
+     [:div.mdl-layout-spacer]
      (search-bar)]]
-   [:div {:class "mdl-layout__drawer"}
-    [:span {:class "mdl-layout-title"} "Papyri"]
-    [:nav {:class "mdl-navigation"}
-     [:a {:class "mdl-navigation__link"} "About"]
-     [:a {:class "mdl-navigation__link"} "Settings"]]]
-   [:main {:class "mdl-layout__content"}
+   [:div.mdl-layout__drawer
+    [:span.mdl-layout-title "Papyri"]
+    [:nav.mdl-navigation
+     [:a.mdl-navigation__link "About"]
+     [:a.mdl-navigation__link "Settings"]
+     [:a.mdl-navigation__link "Latin"]
+     [:a.mdl-navigation__link "Ea"]]]
+   [:main.mdl-layout__content
     [:div
-     ;questionable formatting..
-     (table-container)]]])
+     (table-container (table "Latin"))
+     (table-container (table "Ea"))]]])
 
 (defn about-page []
   [:div [:h2 "About papyri-demo"]

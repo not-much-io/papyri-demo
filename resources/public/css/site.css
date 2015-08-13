@@ -16,5 +16,15 @@
 }
 
 .papyri-table {
+    margin: 0 auto 25px;
+    width: 90%;
+}
+
+.paper-backdrop {
     min-width: 100%;
+}
+
+.table-caption {
+    text-align: left;
+    margin-left: 20px;
 }
