@@ -28,3 +28,20 @@
     text-align: left;
     margin-left: 20px;
 }
+
+.about-card {
+    margin: 10% auto;
+}
+
+.about-card.mdl-card {
+    width: 512px;
+}
+.about-card > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('../images/book-and-rose.jpg') center / cover;
+}
+
+.about-card > .mdl-card__menu {
+    color: #fff;
+}
