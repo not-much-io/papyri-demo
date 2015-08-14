@@ -15,19 +15,19 @@
     [:head
      [:meta {:charset "utf-8"}]
      [:meta {:name "viewport"
-             :content "width=device-width, initial-scale=1"}]
-     (include-css (if (env :dev) "css/site.css" "css/site.min.css")
-                  "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+             :content "width=device-width, initial-scale=1.0"}]
+     (include-css "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
                   "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.brown-orange.min.css"
-                  "https://fonts.googleapis.com/icon?family=Material+Icons")]
+                  "https://fonts.googleapis.com/icon?family=Material+Icons"
+                  (if (env :dev) "css/site.css" "css/site.min.css"))]
     [:body
      [:div#app
       [:h3 "ClojureScript has not been compiled!"]
       [:p "please run "
        [:b "lein figwheel"]
        " in order to start the compiler"]]
-     (include-js "js/app.js"
-                 "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js")]])))
+     (include-js "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"
+                 "js/app.js")]])))
 
 (defroutes routes
   (GET "/" [] home-page)

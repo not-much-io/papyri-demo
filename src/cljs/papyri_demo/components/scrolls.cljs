@@ -1,4 +1,4 @@
-(ns papyri-demo.components.papyri)
+(ns papyri-demo.components.scrolls)
 
 (def test-data {:thought "Lorem ipsum dolor sit amet"
                 :category "Latin"
@@ -13,7 +13,7 @@
   [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.papyri-table
    [:caption.table-caption [:h6 name]]
    [:tbody
-    (repeat 10 (table-row test-data))]])
+    (repeat 6 (table-row test-data))]])
 
 (defn table-container [table]
   [:div.table-container.mdl-grid
