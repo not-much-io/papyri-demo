@@ -4,7 +4,8 @@
               [secretary.core :as secretary :include-macros true]
               [goog.events :as events]
               [goog.history.EventType :as EventType]
-              [papyri-demo.views :as views])
+              [papyri-demo.views :as views]
+              [papyri-demo.util :as util])
     (:import goog.History))
 
 (defn current-page []
@@ -39,3 +40,5 @@
 (defn init! []
   (hook-browser-navigation!)
   (mount-root))
+
+(util/start-upgrading)
