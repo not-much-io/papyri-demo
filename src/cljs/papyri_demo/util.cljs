@@ -2,4 +2,4 @@
 
 (defn start-upgrading []
   (js/setInterval (fn []
-                    (.upgradeDom js/componentHandler)) 10))
+                    (.upgradeDom js/componentHandler)) 100))
