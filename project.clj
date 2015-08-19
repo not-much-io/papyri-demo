@@ -94,5 +94,5 @@
                                    :builds {:app
                                              {:source-paths ["env/prod/cljs"]
                                               :compiler
-                                              {:optimizations :none
+                                              {:optimizations :advanced
                                                :pretty-print false}}}}}})
