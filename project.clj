@@ -19,7 +19,8 @@
                  [hiccup "1.0.5"]
                  [environ "1.0.0"]
                  [org.clojure/clojurescript "1.7.48" :scope "provided"]
-                 [secretary "1.2.3"]]
+                 [secretary "1.2.3"]
+                 [prismatic/dommy "1.1.0"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-asset-minifier "0.2.2"]]
@@ -94,5 +95,5 @@
                                    :builds {:app
                                              {:source-paths ["env/prod/cljs"]
                                               :compiler
-                                              {:optimizations :advanced
+                                              {:optimizations :none
                                                :pretty-print false}}}}}})
