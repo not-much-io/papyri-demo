@@ -1,5 +1,4 @@
 (ns papyri-demo.util)
 
 (defn start-upgrading []
-  (js/setInterval (fn []
-                    (.upgradeDom js/componentHandler)) 100))
+  (js/setInterval #(.upgradeDom js/componentHandler) 100))
