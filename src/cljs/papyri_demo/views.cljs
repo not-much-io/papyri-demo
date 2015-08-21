@@ -9,8 +9,7 @@
 
 (defn home-page []
   (let [content [:div
-                 (scrolls/table-container (scrolls/table "Latin"))
-                 (scrolls/table-container (scrolls/table "Ea"))
+                 (scrolls/shelf)
                  (fabs/add-scroll-fab)]]
     (page content)))
 

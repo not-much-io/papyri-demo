@@ -15,18 +15,20 @@
     max-width: 1200px;
 }
 
-.papyri-table {
-    margin: 0 auto 25px;
+.papyri-shelf {
+    margin: 25px auto;
     width: 90%;
+    table-layout: fixed;
 }
 
-.paper-backdrop {
-    min-width: 100%;
+.scroll-content {
+    white-space: normal;
+    word-wrap: break-word;
+    padding-bottom: 10px; /*Not working..*/
 }
 
-.table-caption {
-    text-align: left;
-    margin-left: 20px;
+.icon-td {
+    width: 60px;
 }
 
 .about-card {
