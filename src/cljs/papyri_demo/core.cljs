@@ -21,6 +21,9 @@
 (secretary/defroute "/about" []
   (session/put! :current-page #'views/about-page))
 
+(secretary/defroute "/settings" []
+  (session/put! :current-page #'views/settings-page))
+
 ;; -------------------------
 ;; History
 ;; must be called after routes have been defined

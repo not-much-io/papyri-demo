@@ -1,11 +1,13 @@
-(ns papyri-demo.components.navigation-bar)
+(ns papyri-demo.components.navigation-bar
+ (:require [papyri-demo.components.settings :as settings]))
 
 (defn side-nav []
   [:div.mdl-layout__drawer
    [:span.mdl-layout-title "Papyri"]
    [:nav.mdl-navigation
     [:a.mdl-navigation__link {:href "#/"} "Main page"]
-    [:a.mdl-navigation__link {:href "#/about"} "About"]]])
+    [:a.mdl-navigation__link {:href "#/about"} "About"]
+    [:a.mdl-navigation__link {:href "#/settings"} "Settings"]]])
 
 (defn search-bar []
   [:form
@@ -23,14 +25,22 @@
       "Expandable Input"]]]])
 
 (defn header []
-  [:header.mdl-layout__header.mdl-layout__header--transparent
+ (let [header-keyword (keyword (str "header.mdl-layout__header"
+                                    (if @settings/transparent-theme
+                                     ".mdl-layout__header--transparent"
+                                     "")))]
+  [header-keyword
    [:div.mdl-layout__header-row
     [:span.mdl-layout-title "Papyri"]
     [:div.mdl-layout-spacer]
-    (search-bar)]])
+    (search-bar)]]))
 
 (defn header-layout [content]
-  [:div.layout-transparent.mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer
+ (let [div-keyword (keyword (str "div.mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer"
+                                 (if @settings/transparent-theme
+                                  ".layout-transparent"
+                                  "")))]
+  [div-keyword
    (header)
    (side-nav)
-   [:main.mdl-layout__content content]])
+   [:main.mdl-layout__content content]]))
