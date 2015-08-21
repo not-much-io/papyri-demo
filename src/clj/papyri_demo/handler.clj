@@ -22,10 +22,7 @@
                   (if (env :dev) "css/site.css" "css/site.min.css"))]
     [:body
      [:div#app
-      [:h3 "ClojureScript has not been compiled!"]
-      [:p "please run "
-       [:b "lein figwheel"]
-       " in order to start the compiler"]]
+      [:div.mdl-progress.mdl-js-progress.mdl-progress__indeterminate.center-floating-content]]
      (include-js "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"
                  "js/app.js")]])))
 
