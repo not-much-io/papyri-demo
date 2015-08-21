@@ -31,13 +31,14 @@
     width: 60px;
 }
 
-.about-card {
+.center-floating-content {
     margin: 10% auto;
 }
 
 .about-card.mdl-card {
     width: 512px;
 }
+
 .about-card > .mdl-card__title {
     color: #fff;
     height: 176px;

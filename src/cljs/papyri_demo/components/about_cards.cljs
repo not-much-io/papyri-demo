@@ -1,7 +1,7 @@
 (ns papyri-demo.components.about-cards)
 
 (defn about-card []
-  [:div.mdl-card.mdl-shadow--2dp.about-card
+  [:div.mdl-card.mdl-shadow--2dp.about-card.center-floating-content
    [:div.mdl-card__title [:h2.mdl-card__title-text "Papyri"]]
    [:div.mdl-card__supporting-text
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit.

@@ -17,7 +17,7 @@
    [:span.mdl-switch__label]]))
 
 (defn setting-table []
- [:table.mdl-data-table.mdl-js-data-table.mdl-shadow-2dp
+ [:table.mdl-data-table.mdl-js-data-table.mdl-shadow-2dp.center-floating-content
   [:thead
    [:tr
     [:th.mdl-data-table__cell--non-numeric "Setting"]
@@ -25,4 +25,4 @@
   [:tbody
    [:tr
     [:td "Transparent Theme"]
-    [:td (setting-switch "Test")]]]])
+    [:td (setting-switch "transparency")]]]])

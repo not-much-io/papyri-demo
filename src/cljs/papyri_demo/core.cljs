@@ -24,6 +24,9 @@
 (secretary/defroute "/settings" []
   (session/put! :current-page #'views/settings-page))
 
+(secretary/defroute "/new-scroll" []
+  (session/put! :current-page #'views/new-scroll-page))
+
 ;; -------------------------
 ;; History
 ;; must be called after routes have been defined

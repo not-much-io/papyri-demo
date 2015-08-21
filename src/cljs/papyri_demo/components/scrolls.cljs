@@ -13,6 +13,11 @@
 
 (defn shelf []
   [:table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+   [:thead
+    [:tr
+     [:td.mdl-data-table__cell--non-numeric
+      [:h5 "Scrolls"]]
+     [:td]]]
    [:tbody
     (for [i (range 20)]
       (scroll test-data))]])
