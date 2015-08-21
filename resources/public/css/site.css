@@ -45,3 +45,10 @@
 .about-card > .mdl-card__menu {
     color: #fff;
 }
+
+.fixed-bottom-fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1;
+}
