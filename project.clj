@@ -19,7 +19,8 @@
                  [hiccup "1.0.5"]
                  [environ "1.0.0"]
                  [org.clojure/clojurescript "1.7.48" :scope "provided"]
-                 [secretary "1.2.3"]]
+                 [secretary "1.2.3"]
+                 [cljs-ajax "0.3.14"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-asset-minifier "0.2.2"]]
@@ -48,51 +49,53 @@
                                         :optimizations :none
                                         :pretty-print  true}}}}
 
-  :profiles {:dev {:repl-options {:init-ns papyri-demo.repl
-                                  :nrepl-middleware []}
+  :profiles {:dev     {:repl-options {:init-ns          papyri-demo.repl
+                                      :nrepl-middleware []}
 
-                   :dependencies [[ring/ring-mock "0.2.0"]
-                                  [ring/ring-devel "1.4.0"]
-                                  [lein-figwheel "0.3.7"]
-                                  [org.clojure/tools.nrepl "0.2.10"]
-                                  [pjstadig/humane-test-output "0.7.0"]]
+                       :dependencies [[ring/ring-mock "0.2.0"]
+                                      [ring/ring-devel "1.4.0"]
+                                      [lein-figwheel "0.3.7"]
+                                      [org.clojure/tools.nrepl "0.2.10"]
+                                      [pjstadig/humane-test-output "0.7.0"]]
 
-                   :source-paths ["env/dev/clj"]
-                   :plugins [[lein-figwheel "0.3.7"]
-                             [lein-cljsbuild "1.0.6"]
-                             [com.cemerick/clojurescript.test "0.3.3"]]
+                       :source-paths ["env/dev/clj"]
+                       :plugins      [[lein-figwheel "0.3.7"]
+                                      [lein-cljsbuild "1.0.6"]
+                                      [com.cemerick/clojurescript.test "0.3.3"]]
 
-                   :injections [(require 'pjstadig.humane-test-output)
-                                (pjstadig.humane-test-output/activate!)]
+                       :injections   [(require 'pjstadig.humane-test-output)
+                                      (pjstadig.humane-test-output/activate!)]
 
-                   :figwheel {:http-server-root "public"
-                              :server-port 3449
-                              :nrepl-port 7002
-                              :css-dirs ["resources/public/css"]
-                              :ring-handler papyri-demo.handler/app}
+                       :figwheel     {:http-server-root "public"
+                                      :server-port      3449
+                                      :nrepl-port       7002
+                                      :css-dirs         ["resources/public/css"]
+                                      :ring-handler     papyri-demo.handler/app}
 
-                   :env {:dev true}
+                       :env          {:dev true}
 
-                   :cljsbuild {:builds {:app {:source-paths ["env/dev/cljs"]
-                                              :compiler {:main "papyri-demo.dev"
-                                                         :source-map true}}
-                                        :test {:source-paths ["src/cljs"  "test/cljs"]
-                                               :compiler {:output-to "target/test.js"
-                                                          :optimizations :whitespace
-                                                          :pretty-print true}}}
-                               :test-commands {"unit" ["phantomjs" :runner
-                                                       "test/vendor/es5-shim.js"
-                                                       "test/vendor/es5-sham.js"
-                                                       "test/vendor/console-polyfill.js"
-                                                       "target/test.js"]}}}
+                       :cljsbuild    {:builds        {:app      {:source-paths ["env/dev/cljs"]
+                                                                 :compiler     {:main       "papyri-demo.dev"
+                                                                                :source-map true}
+                                                                 :figwheel     {:websocket-host "82.131.30.116"}}
+                                                      :test     {:source-paths ["src/cljs" "test/cljs"]
+                                                                 :compiler     {:output-to     "target/test.js"
+                                                                                :optimizations :whitespace
+                                                                                :pretty-print  true}
+                                                                 :figwheel     {:websocket-host "82.131.30.116"}}}
+                                      :test-commands {"unit" ["phantomjs" :runner
+                                                              "test/vendor/es5-shim.js"
+                                                              "test/vendor/es5-sham.js"
+                                                              "test/vendor/console-polyfill.js"
+                                                              "target/test.js"]}}}
 
-             :uberjar {:hooks [leiningen.cljsbuild minify-assets.plugin/hooks]
-                       :env {:production true}
-                       :aot :all
+             :uberjar {:hooks       [leiningen.cljsbuild minify-assets.plugin/hooks]
+                       :env         {:production true}
+                       :aot         :all
                        :omit-source true
-                       :cljsbuild {:jar true
-                                   :builds {:app
-                                             {:source-paths ["env/prod/cljs"]
-                                              :compiler
-                                              {:optimizations :whitespace
-                                               :pretty-print false}}}}}})
+                       :cljsbuild   {:jar    true
+                                     :builds {:app
+                                              {:source-paths ["env/prod/cljs"]
+                                               :compiler
+                                                             {:optimizations :whitespace
+                                                              :pretty-print  false}}}}}})

@@ -17,7 +17,7 @@
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1.0"}]
      (include-css "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-                  "https://storage.googleapis.com/code.getmdl.io/1.0.2/material.brown-orange.min.css"
+                  "https://storage.googleapis.com/code.getmdl.io/1.0.4/material.brown-orange.min.css"
                   "https://fonts.googleapis.com/icon?family=Material+Icons"
                   (if (env :dev) "css/site.css" "css/site.min.css"))]
     [:body

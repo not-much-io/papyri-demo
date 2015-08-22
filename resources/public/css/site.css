@@ -49,6 +49,11 @@
     color: #fff;
 }
 
+.new-scroll-form-card > .mdl-card__title {
+    color: #fff;
+    background: url("../images/papyrus.jpg");
+}
+
 .fixed-bottom-fab {
     position: fixed;
     bottom: 25px;

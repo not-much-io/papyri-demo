@@ -16,7 +16,7 @@
     [:label.mdl-textfield__label {:for id} id]]])
 
 (defn new-scroll-form []
-  [:div.mdl-card.mdl-shadow--2dp.center-floating-content
+  [:div.new-scroll-form-card.mdl-card.mdl-shadow--2dp.center-floating-content
    [:div.mdl-card__title.mdl-card--expand
     [:h2.mdl-card__title-text "New Scroll"]]
    [:div.mdl-card__supporting-text
