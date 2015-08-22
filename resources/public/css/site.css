@@ -50,7 +50,7 @@
 }
 
 .new-scroll-form-card > .mdl-card__title {
-    color: #fff;
+    color: rgba(0, 0, 0, .87);
     background: url("../images/papyrus.jpg");
 }
 
