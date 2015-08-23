@@ -22,7 +22,8 @@
                  [secretary "1.2.3"]
                  [cljs-ajax "0.3.14"]
                  [org.clojure/java.jdbc "0.4.1"]
-                 [postgresql "9.3-1102.jdbc41"]]
+                 [postgresql "9.3-1102.jdbc41"]
+                 [yesql "0.4.2"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-asset-minifier "0.2.2"]]

@@ -1,4 +1,5 @@
-(ns papyri-demo.components.new-scroll-form)
+(ns papyri-demo.components.new-scroll-form
+  (:require [papyri-demo.ajax.testing-example :as ajax-example]))
 
 (defn text-input-single-line [action id]
   [:form {:action action}
@@ -23,5 +24,6 @@
     (text-input-single-line "#" "Title..")
     (text-input-multy-line "#" "Content..")]
    [:div.mdl-card__actions.mdl-card--border
-    [:a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect {:href "#/"}
-     "Submit"]]])
+    [:a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
+     {:href "#/"
+      :on-click #(ajax-example/send-msg)} "Submit"]]])
