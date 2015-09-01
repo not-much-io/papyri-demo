@@ -14,6 +14,7 @@
                  [reagent-utils "0.1.5"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
+                 [ring/ring-json "0.4.0"]
                  [prone "0.8.2"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
@@ -73,19 +74,20 @@
                                       :server-port      3449
                                       :nrepl-port       7002
                                       :css-dirs         ["resources/public/css"]
-                                      :ring-handler     papyri-demo.handler/app}
+                                      :ring-handler     papyri-demo.handler/app
+                                      :websocket-host   "82.131.30.116"} ;;not working!
 
                        :env          {:dev true}
 
                        :cljsbuild    {:builds        {:app      {:source-paths ["env/dev/cljs"]
                                                                  :compiler     {:main       "papyri-demo.dev"
                                                                                 :source-map true}
-                                                                 :figwheel     {:websocket-host "82.131.30.116"}}
+                                                                 :figwheel     {:websocket-host "82.131.30.116"}} ;;not working!
                                                       :test     {:source-paths ["src/cljs" "test/cljs"]
                                                                  :compiler     {:output-to     "target/test.js"
                                                                                 :optimizations :whitespace
                                                                                 :pretty-print  true}
-                                                                 :figwheel     {:websocket-host "82.131.30.116"}}}
+                                                                 :figwheel     {:websocket-host "82.131.30.116"}}} ;;not working!
                                       :test-commands {"unit" ["phantomjs" :runner
                                                               "test/vendor/es5-shim.js"
                                                               "test/vendor/es5-sham.js"
