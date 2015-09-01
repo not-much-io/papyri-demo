@@ -9,8 +9,7 @@
 
 (defn add-scroll [data]
   (POST "/add-scroll"
-        {:params {:content (:content data)
-                  :title (:title data)}
+        {:params data
          :handler handler
          :error-handler error-handler
          :format :json
