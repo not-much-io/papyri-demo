@@ -43,11 +43,9 @@
 (def app
   (let [site-conf (assoc-in site-defaults [:security :anti-forgery] false)
         handler (wrap-defaults #'routes site-conf)]
-    (if (env :dev)
-      (-> handler
-          wrap-exceptions
-          wrap-reload
-          (wrap-json-body {:keywords? true})
-          wrap-json-response
-          wrap-keyword-params)
-      handler)))
+    (-> handler
+        wrap-exceptions
+        wrap-reload
+        (wrap-json-body {:keywords? true})
+        wrap-json-response
+        wrap-keyword-params)))
