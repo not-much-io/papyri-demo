@@ -20,6 +20,7 @@
                  [hiccup "1.0.5"]
                  [environ "1.0.0"]
                  [org.clojure/clojurescript "1.7.48" :scope "provided"]
+                 [cljsjs/material "1.0.4-0"]
                  [secretary "1.2.3"]
                  [cljs-ajax "0.3.14"]
                  [org.clojure/java.jdbc "0.4.1"]
@@ -102,5 +103,5 @@
                                      :builds {:app
                                               {:source-paths ["env/prod/cljs"]
                                                :compiler
-                                                             {:optimizations :whitespace
+                                                             {:optimizations :advanced
                                                               :pretty-print  false}}}}}})

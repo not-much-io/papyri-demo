@@ -1,4 +1,4 @@
-(ns papyri-demo.ajax.ajax-requests
+(ns papyri-demo.ajax-requests
   (:require [ajax.core :refer [POST]]))
 
 (defn handler [response]

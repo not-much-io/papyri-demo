@@ -1,5 +1,5 @@
 (ns papyri-demo.components.new-scroll-form
-  (:require [papyri-demo.ajax.ajax-requests :as ajax-requests]))
+  (:require [papyri-demo.ajax-requests :as ajax-requests]))
 
 (defn text-input-single-line [action id]
   [:form {:action action}

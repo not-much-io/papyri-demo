@@ -5,7 +5,8 @@
               [goog.events :as events]
               [goog.history.EventType :as EventType]
               [papyri-demo.views :as views]
-              [papyri-demo.util :as util])
+              [papyri-demo.util :as util]
+              [cljsjs.material])
     (:import goog.History))
 
 (defn current-page []
