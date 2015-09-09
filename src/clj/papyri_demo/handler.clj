@@ -9,7 +9,8 @@
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.keyword-params :refer [wrap-keyword-params]]
             [environ.core :refer [env]]
-            [ring.util.response :refer [response status]]))
+            [ring.util.response :refer [response status]]
+            [data-storage.queries :as queries]))
 
 (def home-page
   (str "<!DOCTYPE html>"
@@ -28,13 +29,14 @@
       [:div.mdl-progress.mdl-js-progress.mdl-progress__indeterminate.center-floating-content]]
      (include-js "js/app.js")]])))
 
-(defn add-scroll! [{:keys [body]}]
+(defn add-scroll-handler [{:keys [body]}]
   (println "Server recieved body: " body)
+  (queries/add-scroll! body)
   (response {:status :success}))
 
 (defroutes routes
   (GET "/" [] home-page)
-  (POST "/add-scroll" request (add-scroll! request))
+  (POST "/add-scroll" request (add-scroll-handler request))
   (resources "/")
   (not-found "Not Found"))
 

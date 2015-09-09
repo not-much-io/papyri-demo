@@ -4,14 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/clj" "src/cljs" "src/cljc"]
 
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [ring-server "0.4.0"]
-                 [cljsjs/react "0.13.3-1"]
-                 [reagent "0.5.0"]
-                 [reagent-forms "0.5.5"]
-                 [reagent-utils "0.1.5"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
                  [ring/ring-json "0.4.0"]
@@ -19,13 +15,18 @@
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
                  [environ "1.0.0"]
+                 [org.clojure/java.jdbc "0.4.1"]
+                 [postgresql "9.3-1102.jdbc41"]
+                 [yesql "0.4.2"]
                  [org.clojure/clojurescript "1.7.48" :scope "provided"]
+                 [cljsjs/react "0.13.3-1"]
+                 [reagent "0.5.0"]
+                 [reagent-forms "0.5.5"]
+                 [reagent-utils "0.1.5"]
                  [cljsjs/material "1.0.4-0"]
                  [secretary "1.2.3"]
                  [cljs-ajax "0.3.14"]
-                 [org.clojure/java.jdbc "0.4.1"]
-                 [postgresql "9.3-1102.jdbc41"]
-                 [yesql "0.4.2"]]
+                 [prismatic/schema "1.0.1"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-asset-minifier "0.2.2"]]
@@ -84,7 +85,7 @@
                                                                  :compiler     {:main       "papyri-demo.dev"
                                                                                 :source-map true}
                                                                  :figwheel     {:websocket-host "82.131.30.116"}} ;;not working!
-                                                      :test     {:source-paths ["src/cljs" "test/cljs"]
+                                                      :test     {:source-paths ["src/cljs" "test/cljs" "src/cljc"]
                                                                  :compiler     {:output-to     "target/test.js"
                                                                                 :optimizations :whitespace
                                                                                 :pretty-print  true}

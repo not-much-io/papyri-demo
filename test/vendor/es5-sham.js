@@ -291,7 +291,7 @@ if (!Object.defineProperty || definePropertyFallback) {
             }
         }
 
-        // If it's a data property.
+        // If it's a data_storage property.
         if (owns(descriptor, "value")) {
             // fail silently if "writable", "enumerable", or "configurable"
             // are requested but not supported
