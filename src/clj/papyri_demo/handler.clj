@@ -30,7 +30,6 @@
      (include-js "js/app.js")]])))
 
 (defn add-scroll-handler [{:keys [body]}]
-  (println "Server recieved body: " body)
   (queries/add-scroll! body)
   (response {:status :success}))
 

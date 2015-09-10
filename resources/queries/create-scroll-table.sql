@@ -1,0 +1,6 @@
+-- Create scroll table
+CREATE TABLE scrolls(
+  id INT PRIMARY KEY NOT NULL,
+  title VARCHAR NOT NULL,
+  content VARCHAR NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)
